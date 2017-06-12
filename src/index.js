@@ -6,9 +6,10 @@ import {render} from 'react-dom';
 import './index.css';
 
 //Components
-import Connexion from './components/Connexion'
+import App from './components/App'
+//import Connexion from './components/Connexion'
 
 
 render(
-  <Connexion/>, document.getElementById('root')
+  <App/>, document.getElementById('root')
 );
