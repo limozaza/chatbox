@@ -3,7 +3,7 @@ class Message extends React.Component{
   render(){
     return(
       <p className="user-message">
-        Pseudo : Mon Message
+        {this.props.pseudo} : Mon Message
       </p>
     );
   }
