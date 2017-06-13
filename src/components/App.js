@@ -5,6 +5,10 @@ import Message from './Message';
 
 import base from '../base';
 
+//css
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import '../animation.css';
+
 class App extends React.Component{
 
   state = {
@@ -16,6 +20,10 @@ class App extends React.Component{
       context: this,
       state: 'messages'
     });
+  }
+  componentDidUpdate(){
+    //Mettre le scroll
+    this.message.scrollTop = this.message.scrollHeight;
   }
 
   addMessage = (message) => {
@@ -29,16 +37,28 @@ class App extends React.Component{
       messages : messages
     })
   };
+  isUser = (pseudo) => {
+    return pseudo === this.props.params.pseudo;
+  };
+
 
   render(){
     const messages = Object.keys(this.state.messages).map(
-      key => <Message key={key} details={this.state.messages[key]}/>
+      key => <Message key={key} details={this.state.messages[key]} isUser={this.isUser}/>
     );
 
     return(
       <div className="box">
-        <div className="messages">
-          { messages }
+        <div className="messages" ref={input => this.message = input}>
+          <ReactCSSTransitionGroup
+            component="div"
+            className="message"
+            transitionName="message"
+            transitionEnterTimeout = {1000}
+            transitionLeaveTimeout = {1000}
+            >
+            { messages }
+          </ReactCSSTransitionGroup>
         </div>
         <Formulaire
           addMessage={this.addMessage}
