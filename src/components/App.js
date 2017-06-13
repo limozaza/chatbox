@@ -54,8 +54,8 @@ class App extends React.Component{
             component="div"
             className="message"
             transitionName="message"
-            transitionEnterTimeout = {1000}
-            transitionLeaveTimeout = {1000}
+            transitionEnterTimeout={1000}
+            transitionLeaveTimeout={1000}
             >
             { messages }
           </ReactCSSTransitionGroup>
@@ -63,7 +63,7 @@ class App extends React.Component{
         <Formulaire
           addMessage={this.addMessage}
           pseudo={this.props.params.pseudo}
-          length="140"
+          length={140}
           />
       </div>
     );
