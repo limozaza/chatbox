@@ -8,7 +8,7 @@ class App extends React.Component{
     return(
       <div className="box">
         <div className="messages">
-          <Message pseudo="limozaza"/>
+          <Message pseudo={this.props.params.pseudo}/>
         </div>
         <Formulaire />
       </div>
