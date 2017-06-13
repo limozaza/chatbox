@@ -30,7 +30,7 @@ class Formulaire extends React.Component{
         onSubmit={
           (e)=> this.createMessage(e)
         }
-        ref = {input => this.messageForm = input}
+        ref={input => this.messageForm = input}
         >
         <textarea
           required
