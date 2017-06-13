@@ -23,7 +23,8 @@ class App extends React.Component{
     //Le timeStamp
     const timestamp = Date.now();
     messages[`message - ${timestamp}`] = message;
-
+    //On supprime si plus de 10 message
+    Object.keys(messages).slice(0, -10).map(key => messages[key] = null)
     this.setState({
       messages : messages
     })
